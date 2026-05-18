@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript setTimeout Demo</title>
+    <style>
+        /* --- General Setup --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* --- Trigger Button --- */
+        .action-btn {
+            background-color: #10b981;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        /* --- Animated Alert Notification Box --- */
+        .notification {
+            position: fixed;
+            top: -100px; /* Hidden above the screen by default */
+            background-color: #ffffff;
+            color: #1e293b;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+            border-left: 6px solid #10b981;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+        }
+
+        /* Class added by JS to slide the notification down */
+        .notification.show {
+            top: 40px;
+        }
+
+        .icon {
+            font-size: 22px;
+            color: #10b981;
+        }
+
+        .timer-badge {
+            font-size: 11px;
+            background-color: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 20px;
+            color: #64748b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="action-btn" onclick="showAlert()">Save Changes</button>
+
+    <div id="alertBox" class="notification">
+        <span class="icon">✓</span>
+        <span>Data saved successfully!</span>
+        <span class="timer-badge">Auto-closing</span>
+    </div>
+
+    <script>
+        function showAlert() {
+            var alertBox = document.getElementById("alertBox");
+
+            // 1. Instantly display the alert box by adding the 'show' CSS class
+            alertBox.classList.add("show");
+
+            // 2. Set up the JavaScript setTimeout timer engine
+            // Syntax: setTimeout(function, delay_in_milliseconds)
+            setTimeout(function() {
+                
+                // This block of code will execute only AFTER 3000ms (3 seconds) have passed
+                alertBox.classList.remove("show");
+                
+            }, 3000); 
+        }
+    </script>
+
+</body>
+</html>
