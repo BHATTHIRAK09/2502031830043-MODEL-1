@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+       
+        table {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+        }
+        td {
+            padding: 8px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box; /* બોક્સની બહાર ટેક્સ્ટ ના જાય તે માટે */
+        }
+        input[type="radio"], input[type="submit"], input[type="reset"] {
+            width: auto; /* બટન અને રેડિયોને આખામાં નથી ફેલાવવાના */
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">User Registration Form</h2>
+
+    <form action="#">
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" placeholder="Enter Your First Name" required></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" placeholder="Enter Your Last Name" required></td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td><input type="tel" placeholder="Enter Your Mobile Number" required pattern="[0-9]{10}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" placeholder="Enter Your Email" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" placeholder="Enter Your Password" required></td>
+            </tr>
+            <tr>
+                <td>Date Of Birth</td>
+                <td><input type="date" required></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" placeholder="Enter Your Age" min="1" max="100" required></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="Gender" value="Male" id="m"> <label for="m">Male</label>
+                    <input type="radio" name="Gender" value="Female" id="f"> <label for="f">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea rows="3" placeholder="Enter Your Address"></textarea></td>
+            </tr> 
+            <tr>
+                <td>City</td>
+                <td>
+                    <select name="city" required>
+                        <option value="">Select a city</option>
+                        <option value="ahm">Ahmedabad</option>
+                        <option value="surat">Surat</option>
+                        <option value="rajkot">Rajkot</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Pincode</td>
+                <td><input type="number" placeholder="Enter Pincode" required></td>
+            </tr>
+            <tr>
+                <td>Joining Date</td>
+                <td><input type="date" required></td> </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Register Now">
+                    <input type="reset" value="Clear Form">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

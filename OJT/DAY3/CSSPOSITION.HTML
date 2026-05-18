@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All CSS Positions</title>
+    <style>
+        body {
+            height: 3000px; /* પેજને ઘણું મોટું કર્યું છે જેથી સ્ક્રોલિંગ સમજાય */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* FIXED: આ આખા પેજ પર સૌથી ઉપર ફિક્સ રહેશે */
+        .ef {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: tomato;
+            color: white;
+            text-align: center;
+            margin: 0;
+            z-index: 10; /* આનાથી આ બધાની ઉપર દેખાશે */
+        }
+
+        /* RELATIVE: પોતાની જગ્યાએથી થોડું ખસેલું */
+        .ab {
+            position: relative;
+            top: 80px;
+            left: 20px;
+            background-color: yellow;
+            width: fit-content;
+        }
+
+       
+        .cd {
+            position: absolute;
+            top: 200px;
+            left: 50px;
+            background-color: lightblue;
+            width: fit-content;
+        }
+
+      
+        .gh {
+            position: sticky;
+            top: 50px; 
+            background-color: brown;
+            color: white;
+            padding: 10px;
+            margin-top: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="ef">1. FIXED: BHATT</h1>
+
+    <h1 class="ab">2. RELATIVE: BHATT</h1>
+
+    <h1 class="cd">3. ABSOLUTE: BHATT</h1>
+
+    <div style="height: 100px;"></div> <h1 class="gh">4. STICKY: BHATT </h1>
+
+   
+</body>
+</html>

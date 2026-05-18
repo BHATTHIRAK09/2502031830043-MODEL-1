@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Media Query Practice</title>
+    <style>
+        /* 1. DEFAULT STYLES (Mobile First) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightcoral; /* Red for Mobile */
+            padding: 20px;
+            transition: 0.5s; /* Smooth color change */
+        }
+
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+
+        h1::after { content: " (Mobile View)"; }
+
+        /* 2. TABLETS (Screens 600px and up) */
+        @media only screen and (min-width: 600px) {
+            body {
+                background-color: lightblue; /* Blue for Tablets */
+            }
+            h1::after { content: " (Tablet View)"; }
+        }
+
+        /* 3. DESKTOPS (Screens 992px and up) */
+        @media only screen and (min-width: 992px) {
+            body {
+                background-color: lightgreen; /* Green for Desktop */
+            }
+            h1::after { content: " (Desktop View)"; }
+        }
+
+        /* 4. LARGE SCREENS (Screens 1200px and up) */
+        @media only screen and (min-width: 1200px) {
+            body {
+                background-color: plum; /* Purple for Large Monitors */
+            }
+            h1::after { content: " (Large Screen View)"; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Current Device:</h1>
+        <p>Resize the browser window to see the magic!</p>
+    </div>
+
+</body>
+</html>

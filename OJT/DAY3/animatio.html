@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master CSS Animation Dashboard</title>
+    <style>
+        /* General Setup */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        h1 { margin-bottom: 50px; color: #38bdf8; text-shadow: 0 0 10px #38bdf8; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: #f43f5e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 12px;
+        }
+
+        /* --- 1. THE SPINNER (Rotate) --- */
+        .ani-rotate {
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- 2. THE PULSE (Scale) --- */
+        .ani-scale {
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        /* --- 3. THE FLOATER (Translate) --- */
+        .ani-move {
+            animation: float 2s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-30px); }
+        }
+
+        /* --- 4. THE SHAPE SHIFTER (Border-Radius) --- */
+        .ani-shape {
+            animation: morph 3s ease-in-out infinite alternate;
+        }
+        @keyframes morph {
+            0% { border-radius: 12px; background: #f43f5e; }
+            50% { border-radius: 50%; background: #38bdf8; transform: rotate(90deg); }
+            100% { border-radius: 20% 50%; background: #fbbf24; }
+        }
+
+        /* --- 5. THE NEON GLOW (Shadow) --- */
+        .ani-glow {
+            border-radius: 50%;
+            background: #22c55e;
+            animation: glow 1s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #22c55e, 0 0 10px #22c55e; }
+            to { box-shadow: 0 0 20px #22c55e, 0 0 40px #22c55e; }
+        }
+
+        /* --- 6. THE 3D FLIP (Interaction) --- */
+        .ani-flip {
+            transition: 0.8s;
+            cursor: pointer;
+        }
+        .ani-flip:hover {
+            transform: rotateY(180deg);
+            background: #a855f7;
+        }
+
+        /* --- 7. THE SKEW (Wobble) --- */
+        .ani-skew {
+            animation: wobble 1s infinite alternate;
+        }
+        @keyframes wobble {
+            from { transform: skewX(-15deg); }
+            to { transform: skewX(15deg); }
+        }
+
+        /* --- 8. TYPING TEXT --- */
+        .typing-text {
+            font-family: monospace;
+            overflow: hidden;
+            border-right: 2px solid #38bdf8;
+            white-space: nowrap;
+            width: 0;
+            margin: 0 auto;
+            animation: type 4s steps(20) infinite;
+        }
+        @keyframes type {
+            0%, 10% { width: 0; }
+            50%, 90% { width: 100%; }
+            100% { width: 0; }
+        }
+
+        p { color: #94a3b8; font-size: 13px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Animation Masterboard</h1>
+
+    <div class="container">
+        <div class="card">
+            <div class="box ani-rotate">Spin</div>
+            <p>Infinite Rotation</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-scale">Pulse</div>
+            <p>Scaling Effect</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-move">Float</div>
+            <p>Vertical Translation</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-shape">Morph</div>
+            <p>Radius & Color Change</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-glow">Glow</div>
+            <p>Shadow Pulse</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-flip">Hover</div>
+            <p>3D Y-Axis Flip</p>
+        </div>
+
+        <div class="card">
+            <div class="box ani-skew">Wobble</div>
+            <p>Skewing Effect</p>
+        </div>
+
+        <div class="card">
+            <div class="typing-text">Coding is fun...</div>
+            <p>Text Type Animation</p>
+        </div>
+    </div>
+
+</body>
+</html>

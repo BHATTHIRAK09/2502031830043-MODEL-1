@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Table Layout</title>
+    <style>
+        /* ટેબલને સુંદર બનાવવા માટે થોડી સ્ટાઈલ */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse; /* આનાથી ડબલ બોર્ડર દૂર થશે */
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 2px solid #333;
+            padding: 15px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* અક્ષરોને મસ્ત દેખાડવા માટે */
+        td {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">My Professional Table Layout</h2>
+
+    <table>
+        <tr>
+            <td colspan="2" style="background-color: #ffcccc;">A</td>
+            <td colspan="6" style="background-color: #ccffcc;">B</td>
+        </tr>
+        
+        <tr>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+            <td>G</td>
+            <td>H</td>
+            <td rowspan="3" style="background-color: #ccccff;">J</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2" style="background-color: #ffffcc;">K</td>
+            <td>M</td>
+            <td colspan="2">N</td>
+            <td colspan="3">I</td>
+        </tr>
+
+        <tr>
+            <td>L</td>
+            <td>P</td>
+            <td>O</td>
+            <td>I</td>
+            <td>H</td>
+        </tr>
+    </table>
+
+</body>
+</html>
