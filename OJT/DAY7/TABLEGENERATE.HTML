@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Grid Table Generator</title>
+    <style>
+        /* --- General Page Structure --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            color: #334155;
+        }
+
+        /* --- Input Controller Block Panel --- */
+        .control-panel {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .control-panel h2 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        input[type="number"]:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        button {
+            width: 100%;
+            background-color: #3b82f6;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Dynamic Generated Table Styles --- */
+        .table-container {
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto; /* Adds a scrollbar if the table becomes too wide */
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        th:last-child, td:last-child {
+            border-right: none; /* Removes outer-right border ring line */
+        }
+
+        /* Zebra Striping Row-by-Row Alternate Tones */
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9; /* Smooth hover highlight for data rows */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="control-panel">
+        <h2>Grid Table Generator</h2>
+        <div class="input-group">
+            <input type="number" id="inputRows" placeholder="Rows Count" min="1" max="50">
+            <input type="number" id="inputCols" placeholder="Columns Count" min="1" max="20">
+        </div>
+        <button onclick="generateTable()">Generate Table Grid</button>
+    </div>
+
+    <div id="tableWrapper" class="table-container"></div>
+
+    <script>
+        function generateTable() {
+            // Updated IDs to highly semantic identifiers, switched string conversion rulesets
+            var rows = parseInt(document.getElementById('inputRows').value);
+            var cols = parseInt(document.getElementById('inputCols').value);
+            var tableWrapper = document.getElementById('tableWrapper');
+
+            // Defensive parsing validation conditions 
+            if (isNaN(rows) || isNaN(cols) || rows <= 0 || cols <= 0) {
+                alert('Please enter valid positive numbers for rows and columns.');
+                return;
+            }
+
+            // Constructing output structures using clean string patterns (No generic border attribute tags)
+            var tableHTML = '<table>';
+
+            for (var i = 0; i < rows; i++) {
+                tableHTML += '<tr>';
+                for (var j = 0; j < cols; j++) {
+                    tableHTML += '<td>R' + (i + 1) + ', C' + (j + 1) + '</td>';
+                }
+                tableHTML += '</tr>';
+            }
+
+            tableHTML += '</table>';
+
+            // Seamless atomic structural target overrides replacing sloppy append systems
+            tableWrapper.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
