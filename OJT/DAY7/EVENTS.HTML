@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price Calculator (INR)</title>
+    <style>
+        /* --- Modern Styling --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 25px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #333333;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        select:focus, input:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+        }
+
+        /* Readonly fields styling */
+        input[readonly] {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            font-weight: 600;
+            cursor: not-allowed;
+        }
+
+        .total-group input[readonly] {
+            background-color: #ecfdf5;
+            border-color: #a7f3d0;
+            color: #065f46;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-card">
+        <h2>Billing Calculator</h2>
+
+        <div class="form-group">
+            <label for="productSelect">Select Product:</label>
+            <select id="productSelect" onchange="calculateTotal()">
+                <option value="">--Select a product--</option>
+                <option value="499">Product 1 (₹499.00)</option>
+                <option value="999">Product 2 (₹999.00)</option>
+                <option value="1499">Product 3 (₹1,499.00)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="netPrize">Net Price (₹):</label>
+            <input type="text" id="netPrize" readonly value="0.00">
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1" oninput="calculateTotal()">
+        </div>
+
+        <div class="form-group total-group">
+            <label for="totalPrize">Total Price (₹):</label>
+            <input type="text" id="totalPrize" readonly value="0.00">
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            var productSelect = document.getElementById("productSelect");
+            var netPrizeInput = document.getElementById("netPrize");
+            var quantityInput = document.getElementById("quantity");
+            var totalPrizeInput = document.getElementById("totalPrize");
+
+            var basePrice = parseFloat(productSelect.value);
+            var quantity = parseInt(quantityInput.value);
+
+            // If no product is selected or quantity drops below 1, reset values
+            if (isNaN(basePrice) || isNaN(quantity) || quantity < 1) {
+                netPrizeInput.value = "0.00";
+                totalPrizeInput.value = "0.00";
+                return;
+            }
+
+            // Update the Net Price field based on selection
+            netPrizeInput.value = "₹ " + basePrice.toFixed(2);
+
+            // Calculate overall total amount
+            var finalTotal = basePrice * quantity;
+
+            // Output the calculated final total string with Indian Rupee symbol
+            totalPrizeInput.value = "₹ " + finalTotal.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

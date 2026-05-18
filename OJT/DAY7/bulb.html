@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Light Bulb</title>
+    <style>
+        /* --- Center everything on the screen --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #111215;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* --- Pure CSS Bulb Design --- */
+        .bulb-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* The glass part of the bulb */
+        .bulb {
+            width: 120px;
+            height: 120px;
+            background-color: #444444; /* Default: Off (Grey) */
+            border-radius: 50% 50% 45% 45%;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* The metallic base of the bulb */
+        .base {
+            width: 50px;
+            height: 30px;
+            background-color: #777777;
+            border-radius: 0 0 8px 8px;
+            margin-top: -5px;
+            border-top: 4px solid #333333;
+        }
+
+        /* --- Glow effect when active --- */
+        .bulb.on {
+            background-color: #ffdf00; /* Yellow */
+            box-shadow: 0 0 40px #ffdf00, 0 0 80px #ffdf00;
+        }
+        
+        p {
+            margin-top: 25px;
+            color: #888888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Interactive Light Bulb</h2>
+
+    <div class="bulb-container">
+        <div id="lightBulb" class="bulb"></div>
+        <div class="base"></div>
+    </div>
+
+    <p>Hover your mouse over the bulb to turn it ON</p>
+
+    <script>
+        // Get the bulb element from the DOM
+        var bulb = document.getElementById("lightBulb");
+
+        // 1. Mouseover Event: Runs when mouse enters the element area
+        bulb.addEventListener("mouseover", function() {
+            bulb.classList.add("on");
+        });
+
+        // 2. Mouseout Event: Runs when mouse leaves the element area
+        bulb.addEventListener("mouseout", function() {
+            bulb.classList.remove("on");
+        });
+    </script>
+
+</body>
+</html>
