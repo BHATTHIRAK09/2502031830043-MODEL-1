@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript setInterval Digital Clock</title>
+    <title>Dynamic Rainbow Background Loop</title>
     <style>
-        /* --- General Page Reset & Themes --- */
+        /* --- General Reset & Layout --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,122 +14,92 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #090d16;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            /* CRITICAL: Smooth cross-fade transition behavior for the background color */
+            background-color: #e53e3e; 
+            transition: background-color 0.8s ease; 
+            overflow: hidden;
         }
 
-        /* --- Elegant Clock Card Container --- */
-        .clock-card {
-            background: linear-gradient(145deg, #111827, #1f2937);
-            border: 1px solid #374151;
-            padding: 40px;
+        /* --- Translucent Glass Display Panel --- */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 40px 30px;
             border-radius: 24px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            width: 100%;
             max-width: 400px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
-        .clock-card h2 {
-            color: #9ca3af;
+        .glass-panel h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-panel p {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
         }
 
-        /* --- Large Digital Timer Interface --- */
-        .time-display {
-            font-family: monospace;
-            font-size: 48px;
-            font-weight: bold;
-            color: #06b6d4; /* Neon Cyan color */
-            text-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-            background-color: #030712;
-            padding: 15px 20px;
-            border-radius: 12px;
-            border: 1px solid #1f2937;
+        /* --- Live Color Hex Badge Indicator --- */
+        .color-badge {
             display: inline-block;
-            letter-spacing: 2px;
-        }
-
-        /* --- Live Pulse Indicator Dot --- */
-        .status-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
             margin-top: 25px;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #10b981; /* Green */
-            border-radius: 50%;
-            transition: opacity 0.2s ease;
-        }
-
-        /* This class will toggle on and off via setInterval */
-        .pulse-dot.dim {
-            opacity: 0.3;
-        }
-
-        .status-text {
-            font-size: 12px;
-            color: #6b7280;
-            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body>
+<body id="mybody">
 
-    <div class="clock-card">
-        <h2>Live System Clock</h2>
+    <div class="glass-panel">
+        <h1>Interval Color Loop</h1>
+        <p>The system background color updates dynamically using a timed array sequence ring wheel counter.</p>
         
-        <div id="clockDisplay" class="time-display">00:00:00 AM</div>
-        
-        <div class="status-container">
-            <div id="liveDot" class="pulse-dot"></div>
-            <span class="status-text">setInterval updating live every 1s</span>
-        </div>
+        <div id="hexValue" class="color-badge">#E53E3E</div>
     </div>
 
     <script>
-        // Create an initial call so the clock doesn't show 00:00:00 on page load
-        updateClock();
+        // Array cluster housing our custom modern flat pastel color selections
+        var colors = ["#e53e3e", "#dd6b20", "#d69e2e", "#38a169", "#319795", "#3182ce", "#805ad5", "#d53f8c"];
+        
+        var mybody = document.getElementById("mybody");
+        var hexValue = document.getElementById("hexValue");
+        var i = 0;
 
-        // --- Setting up the JavaScript setInterval Loop ---
-        // Syntax: setInterval(function, delay_in_milliseconds)
+        // --- Setting up the recurring structural interval engine loop ---
         setInterval(function() {
             
-            // This entire code block inside runs repeatedly non-stop 
-            // exactly every 1000 milliseconds (which is equal to 1 second)
-            updateClock();
+            // 1. Shift pointer to point to the next structural index location
+            i = (i + 1) % colors.length; 
+
+            // 2. Fetch color string from array position and write it directly to the element body style
+            var currentHex = colors[i];
+            mybody.style.backgroundColor = currentHex;
+
+            // 3. Update the text label overlay badge to show the current hex code string value
+            hexValue.innerHTML = currentHex.toUpperCase();
             
-        }, 1000);
-
-        function updateClock() {
-            var clockDisplay = document.getElementById("clockDisplay");
-            var liveDot = document.getElementById("liveDot");
-
-            // 1. Fetch current live date system timestamp instance
-            var now = new Date();
-
-            // 2. Format it smoothly into standard readable local time (HH:MM:SS AM/PM)
-            var timeString = now.toLocaleTimeString();
-
-            // 3. Inject the formatted time string into the display box
-            clockDisplay.innerHTML = timeString;
-
-            // 4. Toggle the pulse dot class to create a live blinking heart-beat effect
-            liveDot.classList.toggle("dim");
-        }
+        }, 1000); // Loops continuously every 1000 milliseconds (exactly 1 second)
     </script>
-
 </body>
 </html>
