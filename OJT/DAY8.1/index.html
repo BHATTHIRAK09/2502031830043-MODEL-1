@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhatt Hirak | Portfolio</title>
+    <meta name="description" content="Portfolio showcasing Bhatt Hirak's websites, logos, and posters.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">Hirak<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="Creative Developer & Designer">Creative Developer & Designer</h1>
+            <p>I build <strong>Websites</strong>, design <strong>Logos</strong>, and create stunning <strong>Posters</strong>.</p>
+            <div class="hero-actions">
+                <a href="#work" class="btn primary-btn">View My Work</a>
+                <button class="btn secondary-btn share-btn" onclick="copyPortfolioLink()"><i class="fa-solid fa-share-nodes"></i> Share Portfolio</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="work" class="portfolio-section">
+        <h2 class="section-title">My <span>Work</span></h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="websites">Websites</button>
+            <button class="filter-btn" data-filter="logos">Logos</button>
+            <button class="filter-btn" data-filter="posters">Posters</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Website Items -->
+            <div class="portfolio-item websites">
+                <a href="https://web-security-scanner-6.onrender.com/" target="_blank" class="item-link">
+                    <div class="item-inner glass-panel">
+                        <div class="item-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Web Security Scanner</h3>
+                        <p>A professional cyber security scanner web app deployed live.</p>
+                        <span class="live-badge"><span class="pulse"></span> Live Site</span>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-item websites">
+                <a href="https://jalrakshak-app.surge.sh/" target="_blank" class="item-link">
+                    <div class="item-inner glass-panel">
+                        <div class="item-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <h3>Jalrakshak App</h3>
+                        <p>A beautiful and interactive water conservation and reporting web app.</p>
+                        <span class="live-badge"><span class="pulse"></span> Live Site</span>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-item websites">
+                <a href="#" class="item-link">
+                    <div class="item-inner glass-panel">
+                        <div class="item-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Landing Page</h3>
+                        <p>High-converting landing page with smooth animations.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Logo Items -->
+            <div class="portfolio-item logos">
+                <div class="item-inner glass-panel">
+                    <div class="item-img-container">
+                        <img src="tech_logo.png" alt="Tech Startup Logo" class="portfolio-img">
+                    </div>
+                    <h3>Tech Startup Logo</h3>
+                    <p>Minimalist and modern logo design for a tech startup.</p>
+                </div>
+            </div>
+            <div class="portfolio-item logos">
+                <div class="item-inner glass-panel">
+                    <div class="item-img-container">
+                        <img src="restaurant_logo.png" alt="Cozy Restaurant Logo" class="portfolio-img">
+                    </div>
+                    <h3>Restaurant Logo</h3>
+                    <p>Creative and appetizing logo for a local cafe.</p>
+                </div>
+            </div>
+            <div class="portfolio-item logos">
+                <div class="item-inner glass-panel">
+                    <div class="item-img-container">
+                        <img src="jalrakshak_logo.png" alt="Jalrakshak Brand Logo" class="portfolio-img">
+                    </div>
+                    <h3>Jalrakshak Brand Logo</h3>
+                    <p>Custom water drops branding and logo design established in 2004.</p>
+                </div>
+            </div>
+
+            <!-- Poster Items -->
+            <div class="portfolio-item posters">
+                <div class="item-inner glass-panel">
+                    <div class="item-img-container">
+                        <img src="event_poster.png" alt="Music Festival Poster" class="portfolio-img">
+                    </div>
+                    <h3>Event Poster</h3>
+                    <p>Vibrant poster design for a music festival.</p>
+                </div>
+            </div>
+            <div class="portfolio-item posters">
+                <div class="item-inner glass-panel">
+                    <div class="item-img-container">
+                        <img src="event_poster.png" alt="Sci-Fi Poster" class="portfolio-img">
+                    </div>
+                    <h3>Sci-Fi Poster</h3>
+                    <p>Cinematic and dramatic cosmic poster composition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="glass-panel contact-box">
+            <h2>Let's Work <span>Together</span></h2>
+            <p>Interested in my work? Let's build something awesome.</p>
+            <div class="contact-actions">
+                <a href="mailto:hello@example.com" class="btn primary-btn">Get In Touch</a>
+                <button class="btn secondary-btn share-btn" onclick="copyPortfolioLink()"><i class="fa-solid fa-share-nodes"></i> Share Portfolio</button>
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification for Share Link -->
+    <div id="toast" class="toast">Link copied to clipboard!</div>
+
+    <footer>
+        <p>&copy; 2026 Bhatt Hirak. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

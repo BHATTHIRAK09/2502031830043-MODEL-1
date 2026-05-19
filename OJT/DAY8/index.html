@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Pulse: DDoS & Network Traffic Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cyber-Pulse: DDoS & Network Traffic Simulator</h1>
+    </header>
+    
+    <div class="dashboard">
+        <!-- Hacker Section -->
+        <div class="panel hacker-panel">
+            <h2>HACKER BOTNET</h2>
+            <p class="subtitle">(FAKE REQUESTS)</p>
+            
+            <div class="bots" id="bots">
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+                <div class="bot">☠️</div>
+            </div>
+            
+            <div class="controls">
+                <button id="start-attack-btn" class="btn-red">START</button>
+                <h3 style="margin-top: 10px; color: #ff2a2a;">START ATTACK</h3>
+                <p class="small-text">(10,000+ FAKE REQUESTS / SEC)</p>
+            </div>
+        </div>
+
+        <!-- Middle Server Section -->
+        <div class="panel server-panel">
+            <div class="server-status-box">
+                <h2>WEB SERVER</h2>
+                <p id="cpu-load" style="font-weight: bold; margin: 5px 0;">(SERVER CPU LOAD: <span id="cpu-percent">10%</span> <span id="cpu-indicator" class="indicator green"></span>)</p>
+                <h3 id="server-status" class="status-online">STATUS: ONLINE 🌐</h3>
+            </div>
+            
+            <div class="server-graphic">
+                <div class="server-rack">
+                    <div class="server-slot"></div>
+                    <div class="server-slot"></div>
+                    <div class="server-slot"></div>
+                    <div class="server-slot"></div>
+                </div>
+                <div class="meter">
+                    <div class="meter-needle" id="meter-needle"></div>
+                    <div class="meter-text">CRITICAL<br><span id="meter-percent">10%</span> CPU LOAD</div>
+                </div>
+            </div>
+
+            <div class="firewall-controls">
+                <label class="switch">
+                    <input type="checkbox" id="firewall-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>ENABLE FIREWALL</span>
+            </div>
+            
+            <div class="firewall-status" id="firewall-status">
+                <div class="shield" id="shield">🛡️</div>
+                <p id="firewall-text">FIREWALL DEACTIVATED</p>
+                <p id="firewall-sub-text" class="small-text" style="display:none; color: var(--neon-green);">(ATTACK FILTERED ➔ SERVER ONLINE 🟢)</p>
+            </div>
+        </div>
+
+        <!-- Clean Users Section -->
+        <div class="panel users-panel">
+            <h2>CLEAN USERS</h2>
+            <p class="subtitle">(GENUINE TRAFFIC)</p>
+            
+            <div class="users" id="users">
+                <div class="user-group">
+                    <div class="user">👤</div>
+                    <div class="computer">🖥️</div>
+                </div>
+                <div class="user-group">
+                    <div class="user">👤</div>
+                    <div class="computer">🖥️</div>
+                </div>
+                <div class="user-group">
+                    <div class="user">👤</div>
+                    <div class="computer">🖥️</div>
+                </div>
+            </div>
+            
+            <div class="user-status" id="user-status">
+                <p id="user-traffic-status" class="green-text">Genuine Traffic: Active</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Traffic Particles Container -->
+    <div id="traffic-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
