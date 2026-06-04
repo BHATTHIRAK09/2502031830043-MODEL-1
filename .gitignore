@@ -1,3 +1,8 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+jspm_packages/
+
 # Logs
 logs
 *.log
@@ -7,21 +12,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependency directories
-node_modules/
-**/node_modules/
-
-# Build outputs
+# Build outputs and directories
 dist/
 **/dist/
 dist-ssr/
 **/dist-ssr/
+build/
+.svelte-kit
+.next
+.nuxt
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # IDEs and editors
 .vscode/
 **/.vscode/
 .idea/
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj

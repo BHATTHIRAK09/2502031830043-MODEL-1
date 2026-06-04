@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Click Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-panel">
+        <h1>✨ Magic Control Panel ✨</h1>
+        <p>Click the buttons below to see the magic!</p>
+        
+        <div class="box-container">
+            <div id="magicBox" class="box">
+                <span id="boxText">WOW!</span>
+            </div>
+        </div>
+
+        <div class="controls-grid">
+            <div class="control-group">
+                <h3>🎨 Colors</h3>
+                <button id="btnRed" class="btn-color">Ruby Red</button>
+                <button id="btnBlue" class="btn-color">Ocean Blue</button>
+                <button id="btnGradient" class="btn-color">Magic Gold</button>
+            </div>
+
+            <div class="control-group">
+                <h3>💠 Shapes</h3>
+                <button id="btnCircle" class="btn-action">Circle</button>
+                <button id="btnSquare" class="btn-action">Square</button>
+                <button id="btnRounded" class="btn-action">Rounded</button>
+            </div>
+
+            <div class="control-group">
+                <h3>💫 Animations</h3>
+                <button id="btnRotate" class="btn-action">Rotate</button>
+                <button id="btnGrow" class="btn-action">Grow</button>
+                <button id="btnShrink" class="btn-action">Shrink</button>
+            </div>
+
+            <div class="control-group">
+                <h3>🌙 Environment</h3>
+                <button id="btnDarkMode" class="btn-action">Dark Mode</button>
+                <button id="btnLightMode" class="btn-action">Light Mode</button>
+                <button id="btnGlow" class="btn-action">Toggle Glow</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

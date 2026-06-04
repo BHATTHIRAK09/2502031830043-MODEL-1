@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %> – EduExcel Insights</title>
+  <meta name="description" content="About the EduExcel Premium Educational Workspace">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Premium Header & Nav -->
+  <nav class="header-nav">
+    <div class="header-container">
+      <a href="/" class="logo-link">
+        <span class="pulsing-indicator"></span>
+        <span class="brand-gradient">EduExcel</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link active">About</a></li>
+        <li><a href="/principal" class="nav-link">Principal Panel</a></li>
+        <li><a href="/teacher" class="nav-link">Teacher Panel</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Showcase Container -->
+  <main class="container animated-fade-in" style="margin-top: 1.5rem; max-width: 900px;">
+    <!-- Welcome Header Panel -->
+    <section class="glass-panel" style="margin-bottom: 2.5rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(15,23,42,0.6) 0%, rgba(30,41,59,0.4) 100%);">
+      <h1 class="brand-gradient" style="margin-bottom: 1rem;"><%= title %></h1>
+      <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+        <%= message %>. EduExcel was conceived to solve the critical administrative overhead faced by modern educational institutions. By consolidating analytics, tracking grids, student performance tracking, and live announcements into one blazing fast, responsive workspace, school leaders and educators can focus on what truly matters: <strong>delivering high-caliber education</strong>.
+      </p>
+      <div style="border-top: 1px solid var(--glass-border); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; display: block; margin-bottom: 0.25rem;">
+            PLATFORM ARCHITECTURE
+          </span>
+          <span style="font-size: 0.95rem; font-weight: 600; color: var(--secondary);">
+            Express 5.2.1 + EJS 6.0.1 + CSS Glassmorphism
+          </span>
+        </div>
+        <a href="/" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">Back to Home</a>
+      </div>
+    </section>
+
+    <!-- Platform Core Pillars -->
+    <h2 class="text-gradient" style="margin-bottom: 1.5rem; text-align: center;">Core Platform Pillars</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      
+      <!-- Pillar 1 -->
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div style="width: 42px; height: 42px; border-radius: 0.5rem; background: rgba(250, 85%, 65%, 0.1); border: 1px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary); margin-bottom: 1.25rem;">
+          🚀
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: white;">Real-Time Insights</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          Immediate visual feedback on administrative targets, student attendance averages, and budgetary details without manual polling.
+        </p>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div style="width: 42px; height: 42px; border-radius: 0.5rem; background: rgba(180, 85%, 48%, 0.1); border: 1px solid var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--secondary); margin-bottom: 1.25rem;">
+          📊
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: white;">Performance Tracking</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          Highly custom SVG charts and linear distribution metrics that expose grade patterns (A-D profiles) for any academic year.
+        </p>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="glass-panel" style="padding: 1.5rem;">
+        <div style="width: 42px; height: 42px; border-radius: 0.5rem; background: rgba(325, 90%, 60%, 0.1); border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent); margin-bottom: 1.25rem;">
+          🔒
+        </div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: white;">Role-Based Dashboards</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          Tailored user flows, offering full school board views to Principals, and active curriculum planning toolkits to Teachers.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Platform FAQ / Details -->
+    <section class="glass-panel" style="margin-bottom: 2.5rem; padding: 2rem;">
+      <h3 style="font-size: 1.35rem; margin-bottom: 1.25rem;" class="brand-gradient">Frequently Asked Questions</h3>
+      
+      <div style="margin-bottom: 1.25rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
+        <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.5rem;">How does the Principal panel synchronize with the Teacher workspace?</h4>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">
+          All operational statuses, announcements, and curriculum achievements flow into a centralized Express server database, allowing instant alignment.
+        </p>
+      </div>
+
+      <div style="margin-bottom: 1.25rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
+        <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.5rem;">Is the platform responsive on mobile devices?</h4>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">
+          Yes, our custom design system features flexible fluid grid structures that seamlessly fit tablets, laptops, and mobile screens.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.95rem; color: white; margin-bottom: 0.5rem;">Can I extend EJS layouts for other user roles?</h4>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">
+          EJS templates are designed modularly. You can easily plug in parent, student, or coordinator dashboards using the existing custom variables and CSS classes.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Footer -->
+  <footer style="border-top: 1px solid var(--glass-border); margin-top: 4rem; padding: 2rem 0; text-align: center; background: rgba(15,23,42,0.3);">
+    <div class="container" style="padding: 0;">
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin: 0;">
+        &copy; 2026 EduExcel Institutional Portal. Running on Port <strong>5500</strong>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

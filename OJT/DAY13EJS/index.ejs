@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %> – Premium School Workspace</title>
+  <meta name="description" content="EduExcel Premium Educational Dashboard Portal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font (Inter) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Premium Header & Nav -->
+  <nav class="header-nav">
+    <div class="header-container">
+      <a href="/" class="logo-link">
+        <span class="pulsing-indicator"></span>
+        <span class="brand-gradient">EduExcel</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/principal" class="nav-link">Principal Panel</a></li>
+        <li><a href="/teacher" class="nav-link">Teacher Panel</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Showcase Container -->
+  <main class="container animated-fade-in" style="margin-top: 1.5rem;">
+    <!-- Welcome Header Panel -->
+    <section class="glass-panel animated-float" style="text-align: center; margin-bottom: 2.5rem; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(15,23,42,0.6) 0%, rgba(30,41,59,0.4) 100%);">
+      <h1 class="text-gradient" style="margin-bottom: 1rem; font-size: 2.75rem;">Welcome to <span class="brand-gradient">EduExcel Portal</span></h1>
+      <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 1.75rem auto; font-size: 1.1rem; line-height: 1.7;">
+        The next-generation administrative command center and academic dashboard. Seamlessly manage institutional KPIs, class progress tracking, and administrative controls in a modern glassmorphic interface.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="/about" class="btn btn-glass">Learn More</a>
+        <a href="/" class="btn btn-primary">Refresh Data</a>
+      </div>
+    </section>
+
+    <!-- Workspace Grid -->
+    <h2 class="text-gradient" style="margin-bottom: 1.5rem; text-align: center;">Select Your Workspace</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      
+      <!-- Principal Workspace Card -->
+      <div onclick="window.location.href='/principal'" class="glass-panel glass-card-interactive animated-fade-in" style="border-top: 4px solid var(--primary); display: flex; flex-direction: column; justify-content: space-between; height: 320px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(250, 85%, 65%, 0.1); padding: 0.35rem 0.75rem; border-radius: 50px;">
+              Executive Level
+            </div>
+            <!-- Beautiful Desk Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;" class="brand-gradient">Principal Workspace</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">
+            Access institutional KPIs, monitor active teacher ratios, track school-wide grading metrics, and manage administrative settings.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+          <span style="font-size: 0.8rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.4rem;">
+            <span class="pulsing-indicator" style="background: var(--success);"></span> Online Metrics Active
+          </span>
+          <a href="/principal" class="btn btn-glass" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Enter Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Teacher Workspace Card -->
+      <div onclick="window.location.href='/teacher'" class="glass-panel glass-card-interactive animated-fade-in" style="border-top: 4px solid var(--secondary); display: flex; flex-direction: column; justify-content: space-between; height: 320px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(180, 85%, 48%, 0.1); padding: 0.35rem 0.75rem; border-radius: 50px;">
+              Academic Level
+            </div>
+            <!-- Book Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;" class="brand-gradient">Teacher Workspace</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">
+            Register class achievements, broadcast live community announcements, organize scheduling calendars, and analyze pupil grading tracks.
+          </p>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--glass-border); padding-top: 1rem;">
+          <span style="font-size: 0.8rem; color: var(--text-dim); display: flex; align-items: center; gap: 0.4rem;">
+            <span class="pulsing-indicator" style="background: var(--success);"></span> Ready for Entry
+          </span>
+          <a href="/teacher" class="btn btn-glass" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Enter Dashboard</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Interactive Footer -->
+  <footer style="border-top: 1px solid var(--glass-border); margin-top: 4rem; padding: 2rem 0; text-align: center; background: rgba(15,23,42,0.3);">
+    <div class="container" style="padding: 0;">
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin: 0;">
+        &copy; 2026 EduExcel Institutional Portal. Running on Port <strong><%= port %></strong>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

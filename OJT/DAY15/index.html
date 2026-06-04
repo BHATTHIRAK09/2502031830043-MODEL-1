@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Branding Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <span class="logo-text">CONTACT APP</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        <!-- Contact Card Container -->
+        <div class="contact-card">
+            
+            <!-- 1. ALL CONTACTS VIEW -->
+            <section id="listView" class="card-view">
+                <div class="card-header list-header">
+                    <h2>All Contacts</h2>
+                    <button id="btnAddNew" class="btn-add-new">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 9V15M9 12H15M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Add New</span>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="contacts-table">
+                            <thead>
+                                <tr>
+                                    <th class="col-num">#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th class="col-actions">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contactsTableBody">
+                                <!-- Dynamic contacts injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ADD / EDIT CONTACT VIEW -->
+            <section id="formView" class="card-view" style="display: none;">
+                <div class="card-header form-header">
+                    <h2 id="formTitle">Add New Contact</h2>
+                </div>
+                <div class="card-body">
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <input type="hidden" id="contactId">
+                        
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                                <span class="error-msg" id="errFirstName">First Name is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <div class="input-wrapper">
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter last name" required>
+                                <span class="error-msg" id="errLastName">Last Name is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-wrapper">
+                                <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                                <span class="error-msg" id="errEmail">Please enter a valid email address.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <div class="input-wrapper">
+                                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                                <span class="error-msg" id="errPhone">Please enter a valid 10-digit phone number.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <div class="input-wrapper">
+                                <textarea id="address" name="address" rows="4" placeholder="Enter residential address" required></textarea>
+                                <span class="error-msg" id="errAddress">Address is required.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" id="btnSave" class="btn-save">Save</button>
+                            <button type="button" id="btnCancelForm" class="btn-cancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 3. CONTACT DETAILS VIEW -->
+            <section id="detailsView" class="card-view" style="display: none;">
+                <div class="card-header details-header">
+                    <h2>Contact Details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="details-display">
+                        <div class="detail-row">
+                            <span class="detail-label">First Name</span>
+                            <span id="detailFirstName" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Last Name</span>
+                            <span id="detailLastName" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Email</span>
+                            <span id="detailEmail" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Phone</span>
+                            <span id="detailPhone" class="detail-value"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Address</span>
+                            <span id="detailAddress" class="detail-value"></span>
+                        </div>
+                    </div>
+                    <div class="details-footer">
+                        <button type="button" id="btnEditDetail" class="btn-edit-detail">Edit</button>
+                        <button type="button" id="btnDeleteDetail" class="btn-delete-detail">Delete</button>
+                        <button type="button" id="btnCancelDetail" class="btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Contact</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this contact?</p>
+                <p class="delete-warning">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnConfirmDelete" class="btn-danger-confirm">Delete</button>
+                <button id="btnCancelDelete" class="btn-cancel-confirm">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Toast (for premium micro-interactions) -->
+    <div id="toast" class="toast" style="display: none;">
+        <span id="toastMessage">Changes saved successfully!</span>
+    </div>
+
+    <!-- Simple jQuery & Custom Script -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
